@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --text: #000000;
+    --background: #f2f2f2;
+
+    --cellClicked_true: #FFFFFF;
+    --cellClicked_false: #A6A6A6;
+    --cell_border: #818181;
+    --cell_hover: #DDDDDD;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+}
+
+h1, h2, h3, p, li, label, select, option, button {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: var(--text);
+}
+
+p, li, label, select, option, button {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.game p {
+    font-family: 'Courier New', Courier, monospace;
+}
