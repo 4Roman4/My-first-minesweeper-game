@@ -88,4 +88,25 @@ export function createBoard() {
         data.game_data.push(row);
 
     }
+
+    /* Creating mines */
+
+    const mines = new Set();
+
+    while (mines.size !== selection_difficulty) {
+        const random_row = Math.floor(Math.random() * selection_size);
+        const random_col = Math.floor(Math.random() * selection_size);
+        mines.add([random_row, random_col]);
+    }
+
+    mines.forEach(mine => {
+        const row = mine[0];
+        const col = mine[1];
+        data.game_data[row][col].isMine = true;
+
+        document.getElementById(`${row}-${col}`).textContent = "💣";
+    })
+
+    console.log(mines);
+
 }
