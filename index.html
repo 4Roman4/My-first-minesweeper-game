@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>My First Minesweeper Game</title>
+    </head>
+    <body>
+        <header>
+
+            <div class="headerInfo">
+                <h1>Browser minesweeper</h1>
+                <p>This is a recreation of classic minesweeper game made with HTML, CSS and JavaScript. This project is supposed to showcase my abilities and knowledge on this part of webdevelopment. Hope you enjoy!</p>
+            </div>
+
+            <div class="headerInfo">
+                <h3>How to play the game</h3>
+                <ul>
+                    <li>The goal of the game is to clear the entire board by flagging the right cells which include a mine (*icon of mine*).</li>
+                    <li>After player creates a board, he can left click on cells to reveal themselves or right click them to flag them (*icon of flag*).</li>
+                    <li>If a cell includes a number, the number represents the amount of mines included around the cell.</li>
+                    <li>If the player clicks on a cell that is a mine, it's game over and the player has to restart the game.</li>
+                    <li>The game ends when the player correctly flags all mines on the field.</li>
+                </ul>
+            </div>
+
+            <div class="headerInfo">
+                <h3>Basic settings</h3>
+                <div class="headerBasicSettings">
+                    <div class="headerBasicSettings_cell">
+                        <img src="" alt="The left click function">
+                        <p>Left click: Reveal cell</p>
+                    </div>
+                    <div class="headerBasicSettings_cell">
+                        <img src="" alt="The right click function">
+                        <p>Right click: Flag cell</p>
+                    </div>
+                    <div class="headerBasicSettings_cell">
+                        <img src="" alt="Settings for size and difficulty">
+                        <p>Board size and difficulty: Adjustments for the player's experience</p>
+                    </div>
+                    <div class="headerBasicSettings_cell">
+                        <img src="" alt="Losing the game">
+                        <p>Mine: Game over</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Choose your settings</h2>
+            <label for="The board size">Board size</label>
+            <select name="The board size" id="game_settings_size">
+                <option value="8x8">8x8</option>
+                <option value="16x16">16x16</option>
+                <option value="24x24">24x24</option>
+                <option value="32x32">32x32</option>
+            </select>
+            <label for="The board difficulty">Difficulty</label>
+            <select name="The board difficulty" id="game_settings_difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <br>
+            <button id="game_createBoard">Create board</button>
+        </header>
+
+        <div class="game">
+            <div id="game_board"></div>
+            <div id="game_board_info"></div>
+            <div id="game_board_winOrLose"></div>
+        </div>
+
+        <script src="minesweeper.js"></script>
+    </body>
+</html>
