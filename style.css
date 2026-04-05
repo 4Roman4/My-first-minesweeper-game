@@ -33,3 +33,28 @@ p, li, label, select, option, button {
 .game p {
     font-family: 'Courier New', Courier, monospace;
 }
+
+#game_board {
+    display: grid;
+    width: max-content;
+}
+
+.cell {
+    border: 1px solid var(--cell_border);
+    width: 2rem;
+    height: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clicked_false {
+    font-size: 0rem;
+    background-color: var(--cellClicked_false);
+}
+
+.clicked_false:hover {
+    cursor: pointer;
+    background-color: var(--cell_hover);
+}
