@@ -1,3 +1,5 @@
+import { cellSpread } from "./leftClick.js";
+
 export const data = {
     game_board: document.querySelector("#game_board"),
     game_board_info: document.querySelector("#game_board_info"),
@@ -112,6 +114,38 @@ export function createBoard() {
 
     // Checking for neighbours
 
+    for (let r = 0; r < selection_size; r++) {
+        for (let c = 0; c < selection_size; c++) {
+
+            const cellItself = data.game_data[r][c]
+            const neighbour_id = [
+                [r - 1, c - 1], [r - 1, c], [r - 1, c + 1],
+                [r, c - 1], [r, c + 1],
+                [r + 1, c - 1], [r + 1, c], [r + 1, c + 1]
+            ];
+
+            const neighbour_checker = neighbour_id.filter(cell => {
+                const cell_r = cell[0];
+                const cell_c = cell[1];
+
+                return (cell_r >= 0 && cell_r < selection_size) &&
+                    (cell_c >= 0 && cell_c < selection_size) &&
+                    data.game_data[cell_r][cell_c].isMine === true;
+            });
+
+            if (cellItself.isMine === false && neighbour_checker.length > 0) {
+                document.getElementById(`${r}-${c}`).textContent = neighbour_checker.length;
+            }
+        }
+    }
+
+    /*
+
+    This guy did not work. I don't really know why.
+    For some reason, some cells would get checked twice and it would mess up the counter.
+    I decided to persue a simple for loop above and it seems to do the trick just fine.
+    I'll check later what caused the bug before, but for now, this should work fine.
+
     mines.forEach(mine => {
         const row = mine[0];
         const col = mine[1];
@@ -144,4 +178,6 @@ export function createBoard() {
 
         console.log(`Checking neighbours (valid): ` + neighbour_check_valid.join(" / ") + "\n" + "Checking neighbours (mine): " + neighHelp.join(" / "));
     })
+
+    */
 }
