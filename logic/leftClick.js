@@ -16,6 +16,7 @@ export function cellSpread(cell) {
     const clickedCell_visual = document.getElementById(`${row}-${col}`);
 
     console.log(`Left clicked on cell: ${gettingID.join("-")}`);
+    console.log("Number of mines around: " + clickedCell_data.minesAround);
 
     switch (clickedCell_data.isMine) {
         case true:
@@ -45,6 +46,11 @@ export function cellSpread(cell) {
         clickedCell_visual.classList.add("clicked_true");
 
         /* Spread */
+
+        if (clickedCell_data.minesAround > 0) {
+            return;
+        }
+
         const neighbours = [
             [row-1, col-1], [row-1, col], [row-1, col+1],
             [row, col-1], [row, col+1],
@@ -57,7 +63,27 @@ export function cellSpread(cell) {
 
             return (neigh_row >= 0 && neigh_row < data.game_play_selectedSize) 
                 && (neigh_col >= 0 && neigh_col < data.game_play_selectedSize) 
-                && data.game_data[neigh_row][neigh_col].isRevealed === false;
+                && data.game_data[neigh_row][neigh_col].isRevealed === false 
+                && data.game_data[neigh_row][neigh_col].isMine === false;
+        });
+
+        neighbours_checked.forEach(neigh => {
+            const neigh_r = neigh[0];
+            const neigh_c = neigh[1];
+
+            const neighbourCell = document.getElementById(`${neigh[0]}-${neigh[1]}`);
+            neighbourCell.classList.remove("clicked_false");
+            neighbourCell.classList.add("clicked_true");
+
+            if (data.game_data[neigh_r][neigh_c].minesAround === 0) {
+                data.game_data[neigh_r][neigh_c].isRevealed = true;
+                spreading(neigh_r, neigh_c);
+            } else {
+                const neighbourCell_text = document.getElementById(`num-${neigh_r}-${neigh_c}`);
+                neighbourCell_text.style.fontSize = "1rem";
+                return;
+            }
+
         });
 
         console.log(neighbours_checked);
