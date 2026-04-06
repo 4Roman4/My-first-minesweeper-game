@@ -48,6 +48,8 @@ export function cellSpread(cell) {
         /* Spread */
 
         if (clickedCell_data.minesAround > 0) {
+            const clickedCell_text = document.getElementById(`num-${row}-${col}`);
+            clickedCell_text.style.fontSize = "1rem";
             return;
         }
 
