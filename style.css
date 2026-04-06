@@ -47,6 +47,8 @@ p, li, label, select, option, button {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    user-select: none;
 }
 
 .clicked_false {
@@ -58,4 +60,9 @@ p, li, label, select, option, button {
 .clicked_false:hover {
     cursor: pointer;
     background-color: var(--cell_hover);
+}
+
+.clicked_true {
+    font-size: 1rem;
+    background-color: var(--cellClicked_true);
 }

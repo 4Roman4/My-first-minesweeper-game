@@ -9,6 +9,10 @@ export const data = {
     game_settings_difficulty: document.querySelector("#game_settings_difficulty"),
     game_createBoard: document.getElementById("game_createBoard"),
 
+    game_play_selectedSize: 0,
+    game_play_selectedDifficulty: "",
+    game_play_amountOfFlags: 0,
+
     game_data: []
 }
 
@@ -39,8 +43,6 @@ export function createBoard() {
         case "32x32":
             selection_size = 32;
             break;    
-        default:
-            return "ERROR (createBoard): No size selected";
     }
 
     switch (data.game_settings_difficulty.value) {
@@ -53,12 +55,12 @@ export function createBoard() {
         case "Hard":
             selection_difficulty = Math.floor(selection_size * 2.5);
             break;
-        default:
-            return "ERROR(createBoard): No difficulty selected";
     }
 
     console.log(`Game size selected: ${selection_size}\nGame difficulty selected (number of mines): ${selection_difficulty}`);
     data.game_board.style.gridTemplateColumns = `repeat(${selection_size}, 32px)`;
+    data.game_play_selectedSize = selection_size;
+    data.game_play_selectedDifficulty = selection_difficulty;
 
     /* Creating the board */
 
