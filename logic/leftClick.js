@@ -27,6 +27,11 @@ export function cellSpread(cell) {
                 for (let c = 0; c < data.game_play_selectedSize; c++) {
 
                     data.game_data[r][c].isRevealed = true;
+                    if (data.game_data[r][c].minesAround > 0) {
+                        const clickedCell_text = document.getElementById(`num-${r}-${c}`);
+                        clickedCell_text.style.fontSize = "1rem";
+                    }
+
                     document.getElementById(`${r}-${c}`).classList.remove("clicked_false");
                     document.getElementById(`${r}-${c}`).classList.remove("clicked_true");
 

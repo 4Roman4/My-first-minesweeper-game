@@ -1,4 +1,5 @@
 import { cellSpread } from "./leftClick.js";
+import { cellFlag } from "./rightClick.js";
 
 export const data = {
     game_board: document.querySelector("#game_board"),
@@ -84,7 +85,7 @@ export function createBoard() {
             cell_visual.classList.add("cell");
             cell_visual.classList.add("clicked_false");
             cell_visual.setAttribute("id", `${cell.id}`);
-            cell_visual.addEventListener("contextmenu", (e) => e.preventDefault());
+            cell_visual.addEventListener("contextmenu", cellFlag);
             data.game_board.appendChild(cell_visual);
 
         }
