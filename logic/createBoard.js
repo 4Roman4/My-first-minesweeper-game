@@ -136,7 +136,9 @@ export function createBoard() {
             });
 
             if (cellItself.isMine === false && neighbour_checker.length > 0) {
-                document.getElementById(`${r}-${c}`).textContent = neighbour_checker.length;
+                const num = document.createElement("p");
+                num.textContent = `${neighbour_checker.length}`;
+                document.getElementById(`${r}-${c}`).appendChild(num);
             }
         }
     }
