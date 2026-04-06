@@ -13,6 +13,7 @@ export const data = {
     game_play_selectedSize: 0,
     game_play_selectedDifficulty: "",
     game_play_amountOfFlags: 0,
+    game_play_toWin: 0,
 
     game_data: []
 }
@@ -124,6 +125,7 @@ export function createBoard() {
     });
 
     data.game_play_selectedDifficulty = mines.size;
+    data.game_play_toWin = mines.size;
 
     // Checking for neighbours
     for (let r = 0; r < selection_size; r++) {

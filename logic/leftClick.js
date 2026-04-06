@@ -82,7 +82,8 @@ export function cellSpread(cell) {
             return (neigh_row >= 0 && neigh_row < data.game_play_selectedSize) 
                 && (neigh_col >= 0 && neigh_col < data.game_play_selectedSize) 
                 && data.game_data[neigh_row][neigh_col].isRevealed === false 
-                && data.game_data[neigh_row][neigh_col].isMine === false;
+                && data.game_data[neigh_row][neigh_col].isMine === false 
+                && data.game_data[neigh_row][neigh_col].isFlagged === false;
         });
 
         neighbours_checked.forEach(neigh => {
