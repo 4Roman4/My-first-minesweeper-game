@@ -68,7 +68,7 @@ export function createBoard() {
 
             const cell = {
                 id: `${r}-${c}`,
-                minesAround: 0,
+                minesAround: Number(0),
                 isRevealed: false,
                 isMine: false,
                 isFlagged: false
@@ -99,14 +99,49 @@ export function createBoard() {
         mines.add([random_row, random_col]);
     }
 
+    // Creating mine cells
+    console.log("Setting up mines at:");
     mines.forEach(mine => {
-        const row = mine[0];
-        const col = mine[1];
+        let row = mine[0];
+        let col = mine[1];
         data.game_data[row][col].isMine = true;
 
         document.getElementById(`${row}-${col}`).textContent = "💣";
+        console.log(`Row: ${row}\nColumn: ${col}`);
+    });
+
+    // Checking for neighbours
+
+    mines.forEach(mine => {
+        const row = mine[0];
+        const col = mine[1];
+
+        const neighbour_id = [
+            [row - 1, col - 1], [row - 1, col], [row - 1, col + 1],
+            [row, col - 1], [row, col + 1],
+            [row + 1, col - 1], [row + 1, col], [row + 1, col + 1]
+        ];
+
+        const neighbour_check_valid = neighbour_id.filter(id => {
+            const id_r = id[0];
+            const id_c = id[1];
+
+            return (id_r >= 0 && id_r < selection_size) && (id_c >= 0 && id_c < selection_size)
+        });
+
+        const neighHelp = [];
+
+        neighbour_check_valid.forEach(neigh => {
+            const neigh_r = neigh[0];
+            const neigh_c = neigh[1];
+
+            if (data.game_data[neigh_r][neigh_c].isMine === false) {
+                data.game_data[neigh_r][neigh_c].minesAround++;
+                document.getElementById(`${neigh_r}-${neigh_c}`).textContent = data.game_data[neigh_r][neigh_c].minesAround;
+                neighHelp.push(`${neigh_r}-${neigh_c}`);
+            };
+        });
+
+        console.log(`Checking neighbours (valid): ` + neighbour_check_valid.join(" / ") + "\n" + "Checking neighbours (mine): " + neighHelp.join(" / "));
     })
-
-    console.log(mines);
-
 }
