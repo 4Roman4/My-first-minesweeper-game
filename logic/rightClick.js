@@ -23,19 +23,13 @@ export function cellFlag(cell) {
     console.log(`Number of flags left: ${flags}`);
 
     if (clickedCell_data.isFlagged === false) {
-        switch (clickedCell_visual.innerHTML) {
-            case "💣":
-                console.log("There is a mine!");
-                break;
-            case clickedCell_visual.innerHTML.has("p"):
-                console.log("There is a number!");
-                break;
-            default:
-                console.log(`Inner HTML: ${clickedCell_visual.innerHTML}`);
-                break;
-        }
+        clickedCell_data.isFlagged = true;
+        clickedCell_visual.innerHTML = "🚩";
+        clickedCell_visual.style.fontSize = "1rem";
     } else {
-        console.log("Bleh");
+        clickedCell_data.isFlagged = false;
+        clickedCell_visual.innerHTML = "";
+        clickedCell_visual.style.fontSize = "0rem";
     }
 
     /*

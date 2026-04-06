@@ -119,7 +119,7 @@ export function createBoard() {
         let col = mine[1];
         data.game_data[row][col].isMine = true;
 
-        document.getElementById(`${row}-${col}`).textContent = "💣";
+        //document.getElementById(`${row}-${col}`).textContent = "💣";
         console.log(`Row: ${row}\nColumn: ${col}`);
     });
 
@@ -147,11 +147,11 @@ export function createBoard() {
 
             if (cellItself.isMine === false && neighbour_checker.length > 0) {
                 cellItself.minesAround = neighbour_checker.length;
-                const num = document.createElement("p");
-                num.textContent = `${neighbour_checker.length}`;
-                num.setAttribute("id", `num-${r}-${c}`);
-                num.style.fontSize = "0rem";
-                document.getElementById(`${r}-${c}`).appendChild(num);
+                // const num = document.createElement("p");
+                // num.textContent = `${neighbour_checker.length}`;
+                // num.setAttribute("id", `num-${r}-${c}`);
+                // num.style.fontSize = "0rem";
+                // document.getElementById(`${r}-${c}`).appendChild(num);
             }
         }
     }

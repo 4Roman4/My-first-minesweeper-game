@@ -21,6 +21,7 @@ export function cellSpread(cell) {
     switch (clickedCell_data.isMine) {
         case true:
             clickedCell_data.isRevealed = true;
+            clickedCell_visual.innerHTML = "💣"
             clickedCell_visual.style.backgroundColor = "red";
 
             for (let r = 0; r < data.game_play_selectedSize; r++) {
@@ -28,8 +29,16 @@ export function cellSpread(cell) {
 
                     data.game_data[r][c].isRevealed = true;
                     if (data.game_data[r][c].minesAround > 0) {
-                        const clickedCell_text = document.getElementById(`num-${r}-${c}`);
+                        const clickedCell_text = document.getElementById(`${r}-${c}`);
+                        clickedCell_text.innerHTML = data.game_data[r][c].minesAround
                         clickedCell_text.style.fontSize = "1rem";
+                        clickedCell_text.style.fontFamily = "Courier New";
+                    }
+                    if (data.game_data[r][c].isMine === true) {
+                        const clickedCell_text = document.getElementById(`${r}-${c}`);
+                        clickedCell_text.innerHTML = "💣";
+                        clickedCell_text.style.fontSize = "1rem";
+                        clickedCell_text.style.fontFamily = "Courier New";
                     }
 
                     document.getElementById(`${r}-${c}`).classList.remove("clicked_false");
@@ -53,8 +62,10 @@ export function cellSpread(cell) {
         /* Spread */
 
         if (clickedCell_data.minesAround > 0) {
-            const clickedCell_text = document.getElementById(`num-${row}-${col}`);
+            const clickedCell_text = document.getElementById(`${row}-${col}`);
+            clickedCell_text.innerHTML = data.game_data[row][col].minesAround
             clickedCell_text.style.fontSize = "1rem";
+            clickedCell_text.style.fontFamily = "Courier New";
             return;
         }
 
@@ -86,8 +97,10 @@ export function cellSpread(cell) {
                 data.game_data[neigh_r][neigh_c].isRevealed = true;
                 spreading(neigh_r, neigh_c);
             } else {
-                const neighbourCell_text = document.getElementById(`num-${neigh_r}-${neigh_c}`);
+                const neighbourCell_text = document.getElementById(`${neigh_r}-${neigh_c}`);
+                neighbourCell_text.innerHTML = data.game_data[neigh_r][neigh_c].minesAround;
                 neighbourCell_text.style.fontSize = "1rem";
+                neighbourCell_text.style.fontFamily = "Courier New";
                 return;
             }
 
