@@ -39,7 +39,7 @@ export function cellSpread(cell) {
             }
             break;
     
-        default:
+        case false:
             spreading(row, col);
             break;
     }

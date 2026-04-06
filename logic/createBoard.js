@@ -58,10 +58,9 @@ export function createBoard() {
             break;
     }
 
-    console.log(`Game size selected: ${selection_size}\nGame difficulty selected (number of mines): ${selection_difficulty}`);
+    console.log(`Game size selected: ${selection_size}\nGame difficulty selected (max. mines): ${selection_difficulty}`);
     data.game_board.style.gridTemplateColumns = `repeat(${selection_size}, 32px)`;
     data.game_play_selectedSize = selection_size;
-    data.game_play_selectedDifficulty = selection_difficulty;
 
     /* Creating the board */
 
@@ -101,7 +100,16 @@ export function createBoard() {
     while (mines.size !== selection_difficulty) {
         const random_row = Math.floor(Math.random() * selection_size);
         const random_col = Math.floor(Math.random() * selection_size);
-        mines.add([random_row, random_col]);
+
+        if ((random_row >= 0 && random_col < selection_size) && (random_col >= 0 && random_col < selection_size)) {
+            mines.add([random_row, random_col]);
+        } // TODO: For whatever reason, sometimes the amount of mines are not equal to the selection size and just drops one or two mines away...
+        /*
+            I thought the bug occurs only because the browser can't think that fast
+            when you refresh the board way too many times in a short amount of times,
+            but it does that even when you leave like a second before you click...
+            I don't really understand what causes this and I have to look into this later.
+        */
     }
 
     // Creating mine cells
@@ -115,8 +123,9 @@ export function createBoard() {
         console.log(`Row: ${row}\nColumn: ${col}`);
     });
 
-    // Checking for neighbours
+    data.game_play_selectedDifficulty = mines.size;
 
+    // Checking for neighbours
     for (let r = 0; r < selection_size; r++) {
         for (let c = 0; c < selection_size; c++) {
 

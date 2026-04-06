@@ -22,6 +22,22 @@ export function cellFlag(cell) {
     let flags = data.game_play_selectedDifficulty;
     console.log(`Number of flags left: ${flags}`);
 
+    if (clickedCell_data.isFlagged === false) {
+        switch (clickedCell_visual.innerHTML) {
+            case "💣":
+                console.log("There is a mine!");
+                break;
+            case clickedCell_visual.innerHTML.has("p"):
+                console.log("There is a number!");
+                break;
+            default:
+                console.log(`Inner HTML: ${clickedCell_visual.innerHTML}`);
+                break;
+        }
+    } else {
+        console.log("Bleh");
+    }
+
     /*
     if (clickedCell_data.isFlagged === false) {
         clickedCell_data.isFlagged = true;
