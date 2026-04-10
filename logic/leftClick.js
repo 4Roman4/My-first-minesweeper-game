@@ -51,6 +51,9 @@ export function cellSpread(cell) {
             break;
     
         case false:
+            if (clickedCell_data.isFlagged === true) {
+                return;
+            }
             spreading(row, col);
             break;
     }
