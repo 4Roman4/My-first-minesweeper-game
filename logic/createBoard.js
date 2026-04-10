@@ -9,6 +9,8 @@ export const data = {
     game_settings_size: document.querySelector("#game_settings_size"),
     game_settings_difficulty: document.querySelector("#game_settings_difficulty"),
     game_createBoard: document.getElementById("game_createBoard"),
+    game_win: document.getElementById("game_win"),
+    game_lose: document.getElementById("game_lose"),
 
     game_play_selectedSize: 0,
     game_play_selectedDifficulty: "",
@@ -27,6 +29,8 @@ export function createBoard() {
     // Clearing everything
     data.game_board.innerHTML = "";
     data.game_data = [];
+    document.getElementById("game_board_lose").style.display = "none";
+    document.getElementById("game_board_win").style.display = "none";
 
     // Handling the user input
     let selection_size;

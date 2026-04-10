@@ -46,6 +46,8 @@ export function cellSpread(cell) {
 
                 }
             }
+
+            document.getElementById("game_board_lose").style.display = "block";
             break;
     
         case false:

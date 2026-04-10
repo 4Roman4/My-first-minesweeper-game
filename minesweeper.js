@@ -11,5 +11,9 @@ document.querySelector("#game_board").textContent = "";
 document.querySelector("#game_board").addEventListener("click", cellSpread);
 //document.querySelector("#game_board").addEventListener("contextmenu", cellFlag);
 
-const buttonTest = data.game_createBoard;
-buttonTest.addEventListener("click", createBoard);
+const button_createBoard = data.game_createBoard;
+const button_win = data.game_win;
+const button_lose = data.game_lose;
+button_createBoard.addEventListener("click", createBoard);
+button_win.addEventListener("click", createBoard);
+button_lose.addEventListener("click", createBoard);

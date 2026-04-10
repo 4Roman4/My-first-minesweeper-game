@@ -79,6 +79,7 @@ export function cellFlag(cell) {
             }
         }
 
+        document.getElementById("game_board_win").style.display = "block";
     }
 
     /*

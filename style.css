@@ -30,13 +30,22 @@ p, li, label, select, option, button {
     font-weight: 400;
 }
 
-.game p {
+/* .game p {
     font-family: 'Courier New', Courier, monospace;
-}
+} */
 
 #game_board {
+    font-family: 'Courier New', Courier, monospace;
     display: grid;
     width: max-content;
+}
+
+#game_board_win {
+    display: none;
+}
+
+#game_board_lose {
+    display: none;
 }
 
 .cell {

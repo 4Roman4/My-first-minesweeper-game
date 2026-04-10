@@ -69,7 +69,18 @@
             <!-- <p>This is a test text! - 1 2 3 4 5 6 7 8 9</p> -->
             <div id="game_board"></div>
             <div id="game_board_info"></div>
-            <div id="game_board_winOrLose"></div>
+            <div id="game_board_winOrLose">
+                <div id="game_board_win">
+                    <h1>Congratulations! You win!</h1>
+                    <p>You have successfully managed to flag all the right cells with mines in them! Would you like to try your luck again?</p>
+                    <button type="button" id="game_win">Play again</button>
+                </div>
+                <div id="game_board_lose">
+                    <h1>Game over!</h1>
+                    <p>Unfortunatelly, you opened a cell that had a bomb in it. Do you wanna try again?</p>
+                    <button type="button" id="game_lose">Try again</button>
+                </div>
+            </div>
         </div>
 
         <script type="module" src="minesweeper.js"></script>
