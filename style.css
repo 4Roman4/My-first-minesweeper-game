@@ -8,6 +8,9 @@
     --cellClicked_false: #A6A6A6;
     --cell_border: #818181;
     --cell_hover: #DDDDDD;
+
+    --button_static: #818181;
+    --button_hover: #4d4d4d;
 }
 
 * {
@@ -17,27 +20,95 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--background);
 }
+
+body li {
+    margin-left: 2rem;
+}
+
+/* Setting up fonts */
 
 h1, h2, h3, p, li, label, select, option, button {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: var(--text);
 }
 
+h1, h2, h3 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 5rem;
+    /* margin-bottom: 1rem; */
+}
+
+h2 {
+    font-size: 2.25rem;
+    line-height: 4rem;
+    /* margin-bottom: 1rem; */
+}
+
+h3 {
+    font-size: 1.75rem;
+    line-height: 3rem;
+    /* margin-bottom: 1rem; */
+}
+
 p, li, label, select, option, button {
     font-size: 1rem;
     font-weight: 400;
+    line-height: 1.5rem;
 }
 
-/* .game p {
-    font-family: 'Courier New', Courier, monospace;
-} */
+/* Divs */
+
+.headerInfo, #game_board_info, #game_board_winOrLose {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.headerBasicSettings {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerBasicSettings_cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.chooseSettings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 1rem 0; */
+    /* gap: 1rem; */
+}
+
+.boardButtonsSettings {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.game {
+    margin-bottom: 1rem;
+}
 
 #game_board {
     font-family: 'Courier New', Courier, monospace;
     display: grid;
     width: max-content;
+    margin: 1rem auto;
 }
 
 #game_board_win {
@@ -46,6 +117,46 @@ p, li, label, select, option, button {
 
 #game_board_lose {
     display: none;
+}
+
+#game_board_winOrLose {
+    text-align: center;
+}
+
+#game_board_winOrLose button {
+    margin-top: 1rem;
+}
+
+/* Gameplay visuals */
+
+button, select, option {
+    padding: 0.5rem;
+}
+
+button {
+    border-style: none;
+    background-color: var(--button_static);
+    color: #FFFFFF;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--button_hover);
+}
+
+select {
+    border: 1px solid var(--cell_border);
+    background-color: #FFFFFF;
+}
+
+select:hover {
+    background-color: var(--cell_hover);
+    /* color: var(--text); */
+}
+
+option {
+    background-color: #FFFFFF;
+    color: var(--text);
 }
 
 .cell {

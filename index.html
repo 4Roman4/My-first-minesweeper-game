@@ -17,8 +17,8 @@
             <div class="headerInfo">
                 <h3>How to play the game</h3>
                 <ul>
-                    <li>The goal of the game is to clear the entire board by flagging the right cells which include a mine (*icon of mine*).</li>
-                    <li>After player creates a board, he can left click on cells to reveal themselves or right click them to flag them (*icon of flag*).</li>
+                    <li>The goal of the game is to clear the entire board by flagging the right cells which include a mine (💣).</li>
+                    <li>After player creates a board, he can left click on cells to reveal themselves or right click them to flag them (🚩).</li>
                     <li>If a cell includes a number, the number represents the amount of mines included around the cell.</li>
                     <li>If the player clicks on a cell that is a mine, it's game over and the player has to restart the game.</li>
                     <li>The game ends when the player correctly flags all mines on the field.</li>
@@ -29,40 +29,51 @@
                 <h3>Basic settings</h3>
                 <div class="headerBasicSettings">
                     <div class="headerBasicSettings_cell">
-                        <img src="" alt="The left click function">
-                        <p>Left click: Reveal cell</p>
+                        <img src="./images/image01—leftClick.webp" alt="The left click function">
+                        <p><b>Left click</b>: Reveal cell</p>
                     </div>
                     <div class="headerBasicSettings_cell">
-                        <img src="" alt="The right click function">
-                        <p>Right click: Flag cell</p>
+                        <img src="./images/image02—rightClick.webp" alt="The right click function">
+                        <p><b>Right click</b>: Flag cell</p>
                     </div>
                     <div class="headerBasicSettings_cell">
-                        <img src="" alt="Settings for size and difficulty">
-                        <p>Board size and difficulty: Adjustments for the player's experience</p>
+                        <img src="./images/image03—sizeAndDifficulty.webp" alt="Settings for size and difficulty">
+                        <p><b>Board size and difficulty</b>: Adjustments for the player's experience</p>
                     </div>
                     <div class="headerBasicSettings_cell">
-                        <img src="" alt="Losing the game">
-                        <p>Mine: Game over</p>
+                        <img src="./images/image04—gameOver.webp" alt="Losing the game">
+                        <p><b>Mine</b>: Game over</p>
                     </div>
                 </div>
             </div>
 
-            <h2>Choose your settings</h2>
-            <label for="The board size">Board size</label>
-            <select name="The board size" id="game_settings_size">
-                <option value="8x8">8x8</option>
-                <option value="16x16">16x16</option>
-                <option value="24x24">24x24</option>
-                <option value="32x32">32x32</option>
-            </select>
-            <label for="The board difficulty">Difficulty</label>
-            <select name="The board difficulty" id="game_settings_difficulty">
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-            </select>
-            <br>
-            <button type="button" id="game_createBoard">Create board</button>
+            <div class="headerInfo, chooseSettings">
+                <h2>Choose your settings</h2>
+
+                <div class="boardButtonsSettings">
+                    <div class="boardButtonSettings_size">
+                        <label for="The board size">Board size:</label>
+                        <select name="The board size" id="game_settings_size">
+                            <option value="8x8">8x8</option>
+                            <option value="16x16">16x16</option>
+                            <option value="24x24">24x24</option>
+                            <option value="32x32">32x32</option>
+                        </select>
+                    </div>
+
+                    <div class="boardButtonsSettings_difficulty">
+                        <label for="The board difficulty">Difficulty:</label>
+                        <select name="The board difficulty" id="game_settings_difficulty">
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- <br> -->
+                <button type="button" id="game_createBoard">Create board</button>
+            </div>
         </header>
 
         <div class="game">
