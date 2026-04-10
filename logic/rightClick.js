@@ -27,6 +27,7 @@ export function cellFlag(cell) {
             clickedCell_visual.style.fontSize = "1rem";
 
             data.game_play_selectedDifficulty -= 1;
+            document.querySelector("#game_play_info").textContent = data.game_play_selectedDifficulty;
 
             if (clickedCell_data.isMine === true) {
                 data.game_play_toWin -= 1;
@@ -43,6 +44,7 @@ export function cellFlag(cell) {
         clickedCell_visual.style.fontSize = "0rem";
 
         data.game_play_selectedDifficulty += 1;
+        document.querySelector("#game_play_info").textContent = data.game_play_selectedDifficulty;
 
         if (clickedCell_data.isMine === true) {
             data.game_play_toWin += 1;

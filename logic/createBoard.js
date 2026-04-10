@@ -14,7 +14,6 @@ export const data = {
 
     game_play_selectedSize: 0,
     game_play_selectedDifficulty: "",
-    game_play_amountOfFlags: 0,
     game_play_toWin: 0,
 
     game_data: []
@@ -31,6 +30,7 @@ export function createBoard() {
     data.game_data = [];
     document.getElementById("game_board_lose").style.display = "none";
     document.getElementById("game_board_win").style.display = "none";
+    document.querySelector("#game_board_info").style.display = "block";
 
     // Handling the user input
     let selection_size;
@@ -138,6 +138,7 @@ export function createBoard() {
 
     data.game_play_selectedDifficulty = mines.size;
     data.game_play_toWin = mines.size;
+    document.querySelector("#game_play_info").textContent = data.game_play_selectedDifficulty;
 
     // Checking for neighbours
     for (let r = 0; r < selection_size; r++) {

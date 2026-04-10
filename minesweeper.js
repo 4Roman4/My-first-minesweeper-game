@@ -10,6 +10,7 @@ document.querySelector("#game_board").innerHTML = data.game_board;
 document.querySelector("#game_board").textContent = "";
 document.querySelector("#game_board").addEventListener("click", cellSpread);
 //document.querySelector("#game_board").addEventListener("contextmenu", cellFlag);
+document.querySelector("#game_play_info").textContent = data.game_play_amountOfFlags;
 
 const button_createBoard = data.game_createBoard;
 const button_win = data.game_win;

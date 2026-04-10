@@ -111,6 +111,11 @@ p, li, label, select, option, button {
     margin: 1rem auto;
 }
 
+#game_board_info {
+    display: none;
+    text-align: center;
+}
+
 #game_board_win {
     display: none;
 }
